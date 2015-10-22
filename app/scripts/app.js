@@ -9,25 +9,26 @@ blocJamsModule.config(function($stateProvider, $locationProvider) {
 		requireBase: false
 	});
 	
+	
 	$stateProvider
 	
-		.state('album', {
-		url: '/album',
-		controller: 'Album.controller',
-		templateUrl: '/templates/album.html'
+		.state('landing', {
+		url: '/', // where the user initially lands
+		controller: 'LandingCtrl.controller',
+		templateURL: '/templates/landing.html'
 	})
 	
 		.state('collection', {
 		url: '/collection',
-		controller: 'Collection.controller',
+		controller: 'CollectionCtrl.controller',
 		templateURL: '/templates/collection.html'
-	})
+	})	
 	
-		.state('landing', {
-		url: '/', // where the user initially lands
-		controller: 'Landing.controller',
-		templateURL: '/templates/landing.html'
-	});
+		.state('album', {
+		url: '/album',
+		controller: 'AlbumCtrl.controller',
+		templateUrl: '/templates/album.html'
+	})
 	
 });
 // $locationProvider configures an applications paths
