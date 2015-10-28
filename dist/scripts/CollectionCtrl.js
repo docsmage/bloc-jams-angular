@@ -1,5 +1,7 @@
-angular.module('blocJams').controller('CollectionCtrl', function ($scope) {
+blocJams.controller('CollectionCtrl', function ($scope) {
 	
-	// content will go here
-	
+	$scope.albums = [];
+	for (var i = 0; i < 12; i++) {
+		$scope.albums.push(angular.copy(albumPicasso));
+	}
 });

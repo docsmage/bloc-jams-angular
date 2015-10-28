@@ -1,6 +1,15 @@
-<h1>Collection</h1>
-
 <section class="album-covers container">
 	<div class="clearfix">
+		
+		<div ng-repeat="album in albums" class="collection-album-container column fourth">
+			
+			<img src="{{ album.albumArtUrl }}"><br />
+			
+			<a>{{ album.name }}</a><br />
+			<a>{{ album.artist }}</a><br />
+			<a>{{ album.songs.length }} songs</a>
+			
+		</div>
+
 	</div>
 </section>

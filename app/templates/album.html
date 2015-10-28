@@ -1,6 +1,4 @@
-<h1>Album</h1>
-
-         <main class="album-view container narrow">
+<main class="album-view container narrow">
              <section class="clearfix">
                  <div class="column half">
                      <img src="assets/images/album_covers/01.png" class="album-cover-art">
@@ -11,9 +9,19 @@
                      <h5 class="album-view-release-info">1909 Spanish Records</h5>
                  </div>
              </section>
-
-             <table class="album-view-song-list">	 
-					 </table>					 
+					 <table class="album-view-song-list">
+					 <tr class="album-view-song-item" ng-repeat="song in songs">
+						 <td class="song-item-number">
+						 	{{ song.count }}
+						 </td>
+						 <td class="song-item-title">
+						 	{{ song.name }}
+						 </td>
+ <td class="song-item-title">
+						 	{{ song.length }}
+						 </td>						 
+						 </tr>
+					 </table>				 
 		 
 		 </main>
 		 

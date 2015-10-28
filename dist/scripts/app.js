@@ -2,12 +2,14 @@ var blocJams = angular.module('blocJams', ['ui.router']);
 //blocJams is the name of the identifier assigned to the module
 //blocJams is the name of the module and is the link between the apps HTML and the module
 
-blocJams.config(function($stateProvider, $locationProvider) {
+blocJams.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
 	
 	$locationProvider.html5Mode({
 		enabled: true,
 		requireBase: false
 	});
+
+$urlRouterProvider.otherwise('/');	
 	
 $stateProvider.state('landing', {
 		url: '/',

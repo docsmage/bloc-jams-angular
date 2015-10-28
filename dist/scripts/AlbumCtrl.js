@@ -1,5 +1,5 @@
-angular.module('blocJams').controller('AlbumCtrl', function ($scope) {
+blocJams.controller('AlbumCtrl', function ($scope) {
 	
-	// controller content will go here
+	$scope.songs = albumPicasso.songs;
 	
 });

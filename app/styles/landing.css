@@ -8,7 +8,13 @@
  }
 .hero-title {
 	color: #000;
+} 
+
+.point-title {
+	color: #000;
 }
+
+/* for purposes of viewing the content w/out background */
 
  .hero-content .hero-title {
      position: absolute;
