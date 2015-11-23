@@ -17,7 +17,7 @@ blocJams.controller('AlbumCtrl', function ($scope, SongPlayer) {
 		
 		SongPlayer.playOrPause(song);
 		
-	},
+	};
 
 	$scope.onMouseOver = function (song) {
 		if (SongPlayer.playing) {
@@ -29,10 +29,25 @@ blocJams.controller('AlbumCtrl', function ($scope, SongPlayer) {
 			SongPlayer.play();
 
 		}
-	}	
+	};
 	
-//	$scope.onMouseleave = function (song) {
-	// create this function after you've established onMouseOver
-//	}
+	$scope.next = function () {
+		SongPlayer.next();
+	};
+
+	$scope.previous = function () {
+		SongPlayer.previous();
+	};	
+	
+	$scope.playPauseCurrentSong = function () {
+		SongPlayer.playPauseCurrentSong();
+	};
+	
+	$scope.$on('timeupdate', function(event, time) {
+		$scope.$apply(function() {
+			$scope.currentSongTime = time;
+		});
+	});
+	
 	
 });
