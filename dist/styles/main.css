@@ -10,19 +10,20 @@ html {
  
  body {
      font-family: 'Open Sans'; /* sets our font to the "Open Sans" typeface */
-     color: white; /* sets the text color to white */
+   background-color: rgba(101,18,95,1);
+	 color: white; /* sets the text color to white */
      min-height: 100%; /* says the height of the body must be, at minimum, 100% of the window */
  }
  
  body.landing {
-     background-color: rgb(58,23,63);
+     background-color: rgba(101,18,95,1);
  }
 
  .navbar {
 	 position: relative;
 	 padding: 0.5rem;
 	 /* #1 */
-	 background-color: rgba(101,18,95,0.5);
+	 background-color: rgba(101,18,95,1);
 	 /* #2 */
 	 z-index: 1;	 
  }

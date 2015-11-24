@@ -6,12 +6,9 @@
      background-position: center center;
      background-size: cover;
  }
-.hero-title {
-	color: #000;
-} 
 
-.point-title {
-	color: #000;
+.point {
+	color: white;
 }
 
 /* for purposes of viewing the content w/out background */
@@ -39,7 +36,7 @@
      position: relative;
      padding: 2rem;
      text-align: center;
-     opacity: 0;
+     opacity: 1;
      -webkit-transform: scaleX(0.9) translateY(3rem);
      -moz-transform: scaleX(0.9) translateY(3rem);
      transform: scaleX(0.9) translateY(3rem);

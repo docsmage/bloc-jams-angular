@@ -3,6 +3,7 @@ blocJams.factory("SongPlayer", function ($rootScope) {
 	var currentSoundFile = null;
 	var currentSong = null;
 	var currentAlbum = albumPicasso;
+	var currentVolume = 80;
 	
 	var songIndex = function (songUrl) {
 	for (var i = 0; i < currentAlbum.songs.length; i++) {
@@ -16,13 +17,14 @@ blocJams.factory("SongPlayer", function ($rootScope) {
 		
 		// sets default for starting
 		playing: false,
-		currentVolume: 80,
 		currentAlbum: albumPicasso,
+		currentVolume: 80,
 
 	// method to load the song
 		loadSong: function (song) {
 			
 			this.currentSong = song;
+			this.setVolume(this.currentVolume);
 			
 			currentSoundFile = new buzz.sound(song.audioUrl, {
          formats: [ 'mp3' ],
@@ -31,7 +33,7 @@ blocJams.factory("SongPlayer", function ($rootScope) {
 			
 			currentSoundFile.bind('timeupdate', function() {
 			$rootScope.$broadcast('timeupdate', buzz.toTimer(this.getTime()));
-			});			
+			});
 
 		},
 		
@@ -105,12 +107,22 @@ blocJams.factory("SongPlayer", function ($rootScope) {
 			this.playOrPause(currentAlbum.songs[currentSongIndex]);
 		},
 
-		// method to set volume
+		// method to set volume - not yet applied, will be applied to vol seek bar
 		setVolume: function (volume) {
 			if (currentSoundFile) {
 				currentSoundFile.setVolume(volume);
 			}
 		},
+		
+		// method to set correct time - not yet applied
+		filterTimeCode: function (timeInSeconds) {
+			
+			timeInSeconds = Math.floor(Number.parseFloat(timeInSeconds));
+
+			var minutes = Math.floor(timeInSeconds / 60);
+			var seconds = (timeInSeconds % 60);
+			return minutes + ":" + seconds;			
+		}
 		
 	};
 

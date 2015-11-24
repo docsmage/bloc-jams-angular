@@ -43,11 +43,20 @@ blocJams.controller('AlbumCtrl', function ($scope, SongPlayer) {
 		SongPlayer.playPauseCurrentSong();
 	};
 	
+	// ctrl element to set volume - not yet applied!
+	$scope.setVolume = function (volume) {
+		SongPlayer.setVolume(volume);
+	}
+	
 	$scope.$on('timeupdate', function(event, time) {
 		$scope.$apply(function() {
 			$scope.currentSongTime = time;
 		});
 	});
 	
+	// ctrl element to set correct time - not yet applied
+	$scope.setTimeInPlayerBar = function (time) {
+		filterTimeCode(time);
+	};
 	
 });

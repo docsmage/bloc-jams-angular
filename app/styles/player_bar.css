@@ -4,7 +4,7 @@
      left: 0;
      right: 0;
      height: 150px;
-     background-color: peachpuff;
+	 	 background: rgba(255, 255, 255, 0.3);
      z-index: 100;
  }
  

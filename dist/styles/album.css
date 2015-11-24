@@ -1,4 +1,4 @@
- body.album {
+.album-background {
      background-image: url(../assets/images/blurred_backgrounds/blur_bg_3.jpg);
      background-repeat: repeat-y;
      background-position: center center;
@@ -22,27 +22,16 @@
  .album-view-details .album-view-title {
      font-weight: 300;
      font-size: 2rem;
-	 	 color: #000;
  }
  
  .album-view-details .album-view-artist {
      font-weight: 300;
      font-size: 1.5rem;
-	 		color: #000;
  }
- 
-.current-time {
-	color: #000;
-}
-
-.total-time {
-	color: #000;
-}
 
  .album-view-details .album-view-release-info {
      font-weight: 300;
      font-size: 0.75rem;
-	   color: #000;
  }
 
  .album-view-song-list {
@@ -54,9 +43,7 @@
  
  .album-view-song-item {
      height: 3rem;
-     /* #1 */
      border-bottom: 1px solid rgba(255,255,255,0.5);
-	 color: #000;
  }
  
  .song-item-number {
