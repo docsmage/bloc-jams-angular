@@ -47,25 +47,25 @@ blocJams.directive('slider', function (SongPlayer) {
  }; // ends updateSeekPercentage
 			
 			var updateSeekBarWhileSongPlays = function () {
-				
-				var currentSoundFile = SongPlayer.getCurrentSoundFile();
-				
-				if (currentSoundFile) {
-					currentSoundFile.bind('timeupdate', function(event) {
 						var seekBarFillRatio = this.getTime() / this.getDuration();
-						var $seekBar = $('.seek-control .seek-bar');
 						
-						updateSeekPercentage($seekBar, seekBarFillRatio);
-						setCurrentTimeInPlayerBar(this.getTime());
-					});
-				}
+						updateSeekPercentage(seekBar, seekBarFillRatio);
 				
 			}; // ends updateSeekBarWhileSongPlays
-			
+
 			var seekBar = element[0];
 			var thumb = seekBar.querySelector(".thumb");
 			var $thumb = angular.element(thumb);
-			var $document = angular.element(document);
+			var $document = angular.element(document);			
+			
+			if (element.parent().attr('class') == 'seek-control') {
+				updateSeekPercentage(seekBar, 0);
+				SongPlayer.setOnSongPlay(updateSeekBarWhileSongPlays);
+				
+			} else {
+				updateSeekPercentage(seekBar, 0.80);
+			}
+
 			
 			$thumb.on("mousedown", function(event) {
 
@@ -93,5 +93,3 @@ blocJams.directive('slider', function (SongPlayer) {
 		}
 	}
 });
-
-//<slider></slider>

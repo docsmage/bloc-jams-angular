@@ -19,11 +19,13 @@ blocJams.factory("SongPlayer", function ($rootScope) {
 		playing: false,
 		currentAlbum: albumPicasso,
 		currentVolume: 80,
+		onSongPlay: null,
 
 	// method to load the song
 		loadSong: function (song) {
 			
 			this.currentSong = song;
+			var onSongPlay = this.onSongPlay;
 			
 			currentSoundFile = new buzz.sound(song.audioUrl, {
          formats: [ 'mp3' ],
@@ -33,8 +35,16 @@ blocJams.factory("SongPlayer", function ($rootScope) {
 			
 			currentSoundFile.bind('timeupdate', function() {
 			$rootScope.$broadcast('timeupdate', buzz.toTimer(this.getTime()));
+				
+				if (onSongPlay) {
+					onSongPlay.call(this);
+				}
 			});
 
+		},
+		
+		setOnSongPlay: function (fn) {
+			this.onSongPlay = fn;
 		},
 		
 	// method to play the song
@@ -73,6 +83,10 @@ blocJams.factory("SongPlayer", function ($rootScope) {
 		},
 
 		playPauseCurrentSong: function () {
+			if (currentSong === null) {
+				return;
+			}
+			
 			if (this.playing) {
 				this.pause();
 			} else {

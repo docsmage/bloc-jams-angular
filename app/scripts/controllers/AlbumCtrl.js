@@ -49,6 +49,7 @@ blocJams.controller('AlbumCtrl', function ($scope, SongPlayer) {
 
 	
 	$scope.$on('timeupdate', function(event, time) {
+//		debugger;
 		$scope.$apply(function() {
 			$scope.currentSongTime = time;
 		});
